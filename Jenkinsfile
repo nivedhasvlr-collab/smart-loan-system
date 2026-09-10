@@ -1,15 +1,15 @@
-pipeline {
+Set-Content -Path "Jenkinsfile" -Value 'pipeline {
     agent any
     stages {
-        stage("Compile Project") {
+        stage("Compile Project Source") {
             steps {
-                bat "javac -d target/classes src/main/java/com/loan/system/model/*.java src/main/java/com/loan/system/service/*.java src/test/java/com/loan/system/service/*.java"
+                bat "mvn clean compile"
             }
         }
-        stage("Run Automated Tests") {
+        stage("Execute Automated Testing Suites") {
             steps {
-                bat "java -cp target/classes com.loan.system.service.CreditAssessmentTest"
+                bat "mvn test"
             }
         }
     }
-}
+}'; git add Jenkinsfile; git commit -m "fix: update jenkins pipeline logic to native maven declarations"; git push https://github.com main -f
