@@ -1,7 +1,7 @@
 pipeline {
     agent any
     tools {
-        maven 'Maven3' // Matches your exact Jenkins global configuration name
+        maven 'Maven3' 
     }
     stages {
         stage("Compile Project Source") {
@@ -13,6 +13,12 @@ pipeline {
             steps {
                 bat "mvn test"
             }
+        }
+    }
+    post {
+        always {
+            // This line parses your project test metrics to draw the visual trends graphs automatically
+            junit '**/target/surefire-reports/*.xml'
         }
     }
 }
