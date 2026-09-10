@@ -1,7 +1,7 @@
 pipeline {
     agent any
     tools {
-        maven 'Maven 3.x' // This injects the path automatically
+        maven 'Maven3' // Matches your exact Jenkins global configuration name
     }
     stages {
         stage("Compile Project Source") {
