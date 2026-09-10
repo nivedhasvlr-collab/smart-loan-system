@@ -1,4 +1,4 @@
-Set-Content -Path "Jenkinsfile" -Value 'pipeline {
+pipeline {
     agent any
     stages {
         stage("Compile Project Source") {
@@ -12,4 +12,4 @@ Set-Content -Path "Jenkinsfile" -Value 'pipeline {
             }
         }
     }
-}'; git add Jenkinsfile; git commit -m "fix: update jenkins pipeline logic to native maven declarations"; git push https://github.com main -f
+}
