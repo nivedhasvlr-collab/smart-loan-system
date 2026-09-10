@@ -1,5 +1,8 @@
 pipeline {
     agent any
+    tools {
+        maven 'Maven 3.x' // This injects the path automatically
+    }
     stages {
         stage("Compile Project Source") {
             steps {
